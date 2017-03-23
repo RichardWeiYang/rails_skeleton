@@ -1,0 +1,11 @@
+<h2>Admin Edit</h2>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+
+<%= f.input :nickname %>
+<%= f.input :email %>
+<%= f.input :is_admin %>
+<%= f.submit "Submit"%>
+<% end %>
+
+<%= link_to "Back", :back %>
