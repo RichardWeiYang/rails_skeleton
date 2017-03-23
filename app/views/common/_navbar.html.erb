@@ -10,8 +10,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                   <% if !current_user %>
-                    <li><%= link_to("注册", new_user_registration_path) %> </li>
-                    <li><%= link_to("登录", new_user_session_path) %></li>
+                    <li><%= link_to(content_tag(:i, "注册", class: 'fa fa-user-o'), new_user_registration_path) %> </li>
+                    <li><%= link_to(content_tag(:i, "登录", class: 'fa fa-sign-in'), new_user_session_path) %></li>
                   <% else %>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -22,8 +22,8 @@
                         <% if current_user.is_admin? %>
                           <li><%= link_to("Admin Panel", "#") %></li>
                         <% end %>
-                        <li><%= link_to("修改", edit_registration_path(:user)) %></li>
-                        <li><%= link_to("退出", destroy_user_session_path, method: :delete) %></li>
+                        <li><%= link_to(content_tag(:i, "修改", class: 'fa fa-user-circle'), edit_registration_path(:user)) %></li>
+                        <li><%= link_to(content_tag(:i, "退出", class: 'fa fa-eject'), destroy_user_session_path, method: :delete) %></li>
                       </ul>
                     </li>
                   <% end %>
