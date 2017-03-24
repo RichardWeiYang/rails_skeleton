@@ -1,0 +1,18 @@
+<div class="pull-right">
+  <%= link_to("Add a hobby", new_hobby_path, :class => "btn btn-default" ) %>
+</div>
+<table class="table table-boldered">
+  <% @hobbies.each do |hobby| %>
+  <tr>
+    <td>
+      <%= link_to(hobby.title, hobby_path(hobby)) %>
+    </td>
+    <td>
+    <%= link_to("Destroy", hobby_path(hobby), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+    <td>
+      <%= hobby.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
