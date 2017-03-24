@@ -28,10 +28,10 @@
                       </a>
                       <ul class="dropdown-menu">
                         <% if current_user.is_admin? %>
-                          <li><%= link_to("Admin Panel", "#") %></li>
+                          <li><%= link_to(content_tag(:i, "管理界面", class: 'fa fa-info-circle'), admin_users_path) %></li>
                         <% end %>
                         <li><%= link_to(content_tag(:i, "修改", class: 'fa fa-user-circle'), edit_registration_path(:user)) %></li>
-                        <li><%= link_to(content_tag(:i, "退出", class: 'fa fa-eject'), destroy_user_session_path, method: :delete) %></li>
+                        <li><%= link_to(content_tag(:i, "退出", class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
                       </ul>
                     </li>
                   <% end %>
