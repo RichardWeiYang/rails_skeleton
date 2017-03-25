@@ -1,18 +1,42 @@
-<table class="table table-boldered">
+<div class="dropdown clearfix pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      排序 <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+        <li>
+            <%= link_to("按照用户名排序", admin_users_path(:order => "username")) %>
+        </li>
+        <li>
+            <%= link_to("按照用户名倒排", admin_users_path(:order => "username_rev")) %>
+        </li>
+        <li>
+          <%= link_to("按照创建时间排序", admin_users_path ) %>
+        </li>
+    </ul>
+</div>
+ <table class="table table-boldered">
+   <thead>
+        <tr>
+            <td>用户名</td>
+            <td>创建时间</td>
+        </tr>
+    </thead>
+  <tbody>
   <% @users.each do |user| %>
   <tr>
     <td>
       <%= user.nickname %>
     </td>
     <td>
+      <%= user.created_at %>
+    </td>
+    <td>
       <%= link_to("Edit", edit_admin_user_path(user)) %>
       <%= link_to("Delete", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"}) %>
     </td>
-    <td>
-      <%= user.created_at %>
-    </td>
   </tr>
   <% end %>
+  </tbody>
 </table>
 
 <div class="text-center">
