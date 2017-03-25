@@ -5,13 +5,14 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = case params[:order]
-    when 'username_rev'
-      User.all.order('nickname DESC').paginate(:page => params[:page], :per_page => 5)
     when 'username'
-      User.all.order('nickname ASC').paginate(:page => params[:page], :per_page => 5)
+      User.all.name_alphabetical
+    when 'username_rev'
+      User.all.name_alphabetical_rev
     else
-      User.all.paginate(:page => params[:page], :per_page => 5)
+      User.all
     end
+    @users = @users.paginate(:page => params[:page], :per_page => 5)
   end
 
   def edit
