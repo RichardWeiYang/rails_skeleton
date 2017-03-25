@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This my personal git repo for rails project skeleton.
 
-Things you may want to cover:
+The purpose of this project is to accelarate new project setup. By clone this
+project, user could has a working base for rails project with basic and
+frequently use gem installed.
 
-* Ruby version
+# How to use this
 
-* System dependencies
+* clone this
+* bundle install
+* rake db:create
+* rake db:migrate
+* rails s
 
-* Configuration
+Then you have the basic website!
 
-* Database creation
+Enjoy and have fun~
 
-* Database initialization
+# Diffferent branch server different purpose:
 
-* How to run the test suite
+master:     The raw start
 
-* Services (job queues, cache servers, search engines, etc.)
+with_user:  master + basic CRUD for user
 
-* Deployment instructions
-
-* ...
+CRUD:       with_user + CRUD for hobby table
