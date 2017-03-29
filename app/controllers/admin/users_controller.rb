@@ -4,6 +4,7 @@ class Admin::UsersController < ApplicationController
   layout "admin"
 
   def index
+
     @users = case params[:order]
     when 'username'
       User.all.name_alphabetical
@@ -12,6 +13,12 @@ class Admin::UsersController < ApplicationController
     else
       User.all
     end
+
+    if params[:hobbies_ids].present?
+      flash[:notice] = "Hobby #{params[:hobbies_ids].split(",")}"
+      @users = @users.includes(:hobbyships).where( :hobbyships => { :hobby_id => params[:hobbies_ids] } )
+    end
+
     @users = @users.paginate(:page => params[:page], :per_page => 5)
 
     @dates = (Date.today-7.day..Date.today).to_a

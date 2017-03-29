@@ -41,6 +41,14 @@ var myChart = new Chart(ctx, {
 });
 </script>
 
+
+<div class="group">
+<%= form_tag admin_users_path, :method => :get do %>
+选择兴趣
+<%= select_tag :hobbies_ids, options_for_select(Hobby.all.map{ |c| [c.title, c.id] }, params[:hobbies_ids]), :multiple => true , :class => "form-control" %>
+<%= submit_tag "Submit" %>
+<% end %>
+</div>
 <div class="dropdown clearfix pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       排序 <span class="caret"></span>
@@ -85,3 +93,6 @@ var myChart = new Chart(ctx, {
 <div class="text-center">
   <%= will_paginate @users %>
 </div>
+<script>
+  $("#hobbies_ids").select2();
+</script>
