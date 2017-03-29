@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
     if @user.update(user_params)
-      flash[:warning] = "changed"
+      flash[:warning] = "User: #{@user.nickname} changed -- #{user_params[:hobby_ids]}"
       redirect_to admin_users_path
     else
       render :edit
@@ -44,6 +44,6 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :is_admin)
+    params.require(:user).permit(:nickname, :email, :is_admin, :hobby_ids => [])
   end
 end

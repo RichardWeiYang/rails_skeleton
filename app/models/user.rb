@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   scope :name_alphabetical, -> { order('nickname ASC') }
   scope :name_alphabetical_rev, -> { order('nickname DESC') }
+
+  has_many :hobbyships
+  has_many :hobbies, :through => :hobbyships
 end

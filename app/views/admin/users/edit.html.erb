@@ -5,7 +5,12 @@
 <%= f.input :nickname %>
 <%= f.input :email %>
 <%= f.input :is_admin %>
+<%= f.association :hobbies %>
 <%= f.submit "Submit"%>
 <% end %>
 
 <%= link_to "Back", :back %>
+
+<script>
+  $("#user_hobby_ids").select2()
+</script>
