@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @hobbies = Hobby.all
   end
@@ -47,7 +47,7 @@ class HobbiesController < ApplicationController
   private
 
   def hobby_params
-    params.require(:hobby).permit(:title)
+    params.require(:hobby).permit(:title, :image)
   end
 
 end

@@ -8,6 +8,13 @@
       <%= link_to(hobby.title, hobby_path(hobby)) %>
     </td>
     <td>
+      <% if hobby.image.present? %>
+          <%= image_tag(hobby.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+      <% end %>
+    </td>
+    <td>
     <%= link_to("Destroy", hobby_path(hobby), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
     </td>
     <td>
