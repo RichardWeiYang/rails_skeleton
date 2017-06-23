@@ -42,6 +42,8 @@ gem 'font-awesome-rails'
 gem 'awesome_rails_console'
 gem 'will_paginate'
 gem 'select2-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
