@@ -47,7 +47,7 @@ class HobbiesController < ApplicationController
   private
 
   def hobby_params
-    params.require(:hobby).permit(:title, :image, :popular_time)
+    params.require(:hobby).permit(:title, :image, :popular_time, :description)
   end
 
 end
