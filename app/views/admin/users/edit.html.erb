@@ -5,7 +5,8 @@
 <%= f.input :nickname %>
 <%= f.input :email %>
 <%= f.input :is_admin %>
-<%= f.association :hobbies %>
+<%#= f.association :hobbies %>
+<%= f.select :hobby_ids, Hobby.all.map{ |h| [h.title, h.id] }, {}, {:multiple => true, :class => "form-control"} %>
 <%= f.submit "Submit"%>
 <% end %>
 
