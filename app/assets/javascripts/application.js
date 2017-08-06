@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require select2
 //= require bootstrap-datepicker
+//= require autosize.min
 //= require_tree .
