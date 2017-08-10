@@ -7,4 +7,5 @@ CarrierWave.configure do |config|
   config.qiniu_block_size    = 4*1024*1024
   config.qiniu_protocol      = "http"
   config.qiniu_up_host       = 'http://up.qiniu.com'  # EastChina
+  #config.qiniu_up_host       = 'http://up-na0.qiniu.com' #NorthAmerica
 end
