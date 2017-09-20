@@ -2,7 +2,7 @@ class HobbiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @hobbies = Hobby.all
+    @hobbies = Hobby.all.order('position ASC')
   end
 
   def show
@@ -41,6 +41,18 @@ class HobbiesController < ApplicationController
 
     @hobby.destroy
 
+    redirect_to hobbies_path
+  end
+
+  def move_up
+    @hobby = Hobby.find(params[:id])
+    @hobby.move_higher
+    redirect_to hobbies_path
+  end
+
+  def move_down
+    @hobby = Hobby.find(params[:id])
+    @hobby.move_lower
     redirect_to hobbies_path
   end
 

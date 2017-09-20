@@ -5,4 +5,6 @@ class Hobby < ApplicationRecord
     has_many :users, :through => :hobbyships
 
     mount_uploader :image, ImageUploader
+
+    acts_as_list
 end

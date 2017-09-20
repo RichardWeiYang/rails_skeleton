@@ -15,7 +15,11 @@
       <% end %>
     </td>
     <td>
-    <%= link_to("Destroy", hobby_path(hobby), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <%= link_to("Up", move_up_hobby_path(hobby), :method => :post) %>
+      |
+      <%= link_to("Down", move_down_hobby_path(hobby), :method => :post) %>
+      |
+      <%= link_to("Destroy", hobby_path(hobby), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
     </td>
     <td>
       <%= hobby.created_at %>

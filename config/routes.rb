@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
-  
-  resources :hobbies
+
+  resources :hobbies do
+    member do
+      post :move_up
+      post :move_down
+    end
+  end
 end
